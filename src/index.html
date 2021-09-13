@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <title>RubenDax Firmware Upgrader</title>
+    <link type="text/css" href="./assets/fontawesome/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/bulma.css">
+    <link rel="stylesheet" href="./assets/style.css">
+</head>
+
+<body>
+
+    <nav class="navbar is-dark is-flex-mobile is-flex-tablet" role="navigation" aria-label="main navigation">
+        <div class="navbar-brand">
+            <a class="navbar-item" onclick="openWebsite()">
+                <span class="is-size-5">RubenDax.com</sapn>
+            </a>
+        </div>
+        <div class="navbar-end">
+            <div class="navbar-item">
+                <a id="close" class="button is-dark" onclick="window.close()">
+                    <span class="is-size-5">&times;</sapn>
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="text-align: center;">
+        <section class="hero is-info">
+            <div class="hero-body">
+                <div class="container">
+                    <h1 class="title">
+                    RubenDax Firmware Updater
+                    </h1>
+                    <h2 class="subtitle">
+                    &copy; 2020, Ruben Dax
+                    </h2>
+                </div>
+            </div>
+        </section>
+
+        <div id="version-container" class="rubendax-step notification is-info">
+            <p id="version"></p>
+        </div>
+
+        <div id="progress-container" class='rubendax-step'>
+            <progress class="progress is-small is-info" max="100"></progress>
+        </div>
+
+        <div id="message-container" class="rubendax-step">
+            <p id="message"></p>
+        </div>
+
+        <!-- <div id="port-selector-container" class="rubendax-step">
+            <div class="select">
+                <select id="port-selector"></select>
+            </div>
+        </div> -->
+
+        <div id="search-again-button-container" class="rubendax-step">
+            <a id="search-again-button" class="button is-info is-outlined">
+                <span class="icon">
+                    <i class="fas fa-search" aria-hidden="true"></i>
+                </span>
+                <span>Search Again</span>
+            </a>
+        </div>
+        <!-- <div id="hex-file-container" class="rubendax-step">
+            <div class="file has-name">
+                <label class="file-label">
+                <input id="hex-file-input" class="file-input" type="file" name="resume">
+                <span class="file-cta">
+                    <span class="file-icon">
+                    <i class="fas fa-upload"></i>
+                    </span>
+                    <span class="file-label">
+                    Choose a HEX file …
+                    </span>
+                </span>
+                <span id="hex-file-name" class="file-name">
+                    (none)
+                </span>
+                </label>
+            </div>
+        </div> -->
+
+        <div id="upload-button-container" class="rubendax-step">
+            <a id="upload-button" class="button is-info is-outlined">
+                <span class="icon">
+                    <i class="fas fa-upload" aria-hidden="true"></i>
+                </span>
+                <span>Upgrade Now</span>
+            </a>
+        </div>
+    </div>
+
+    <script src="./renderer.js"></script>
+</body>
+
+</html>

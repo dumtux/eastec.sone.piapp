@@ -1,0 +1,23 @@
+html {
+    overflow-y: auto;
+}
+
+#version-container,
+#hex-file-container,
+#upload-button-container,
+#progress-container,
+#port-selector-container,
+#search-again-button-container,
+#messave-container {
+    visibility: hidden;
+}
+
+.rubendax-step {
+    margin: 16px;
+}
+
+#close {
+    position: fixed;
+    top: 6px;
+    right: 6px;
+}
