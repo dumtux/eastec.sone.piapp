@@ -1,0 +1,91 @@
+html, body {
+
+}
+
+div, p, span, a, h1, h2, h3, h4, h5 {
+    color: #37434F;
+}
+
+#bottomMenubar {
+    position: fixed;
+    bottom: 0;
+    height: 80px;
+    display: grid;
+    width: 100vw;
+    padding: 15px 25px;
+    display: flex;
+    background-color: #E5E5E5;
+    color: #6D7596;
+}
+
+#bottomMenubar .bottomMenuItem {
+    flex: 1;
+    text-align: center;
+    text-transform: uppercase;
+    font-size: 12pt;
+    padding-top: 11px;
+}
+
+#bottomMenubar .bottomMenuItem img {
+    width: 30px;
+    height: 30px;
+    margin-top: -3px;
+    margin-right: 8px;
+}
+
+#bottomMenubar .bottomMenuItem.active {
+    color: #37434F;
+}
+
+#bottomMenubar .bottomMenuItem.active img {
+    filter: hue-rotate(135deg) saturate(8);
+}
+
+
+#mainContainer {
+    width: 100vw;
+    height: calc(100vh - 80px);
+    background-color: white;
+    overflow: hidden;
+}
+
+#homePage {
+    width: 100vw;
+    height: calc(100vh - 80px);
+    background-image: url(../images/sauna-room.png);
+    background-position: bottom left;
+    background-repeat: no-repeat;
+    background-size: 665px;
+    padding: 150px 50px 0px 50%;
+}
+
+#homeValue {
+    margin-bottom: 5px;
+    font-size: 85pt;
+    font-weight: bold;
+}
+
+#homeValue img {
+    width: 45px;
+    margin-bottom: 13px;
+}
+
+#homeProgramTemperature {
+    margin-bottom: 60px;
+    font-size: 25pt;
+}
+
+
+#homeStatus label {
+    font-weight: bold;
+    color: #6D7596;
+    font-size: 18pt;
+    margin-bottom: 15px
+}
+
+#homeStatus .value {
+    background: #F6F7FB;
+    border-radius: 20px;
+    padding: 15px 40px;
+    font-size: 25pt;
+} 

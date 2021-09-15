@@ -1,104 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Sauna</title>
+    <link
+      type="text/css"
+      href="./assets/fontawesome/css/all.min.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+  </head>
 
-    <title>RubenDax Firmware Upgrader</title>
-    <link type="text/css" href="./assets/fontawesome/css/all.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="./assets/bulma.css">
-    <link rel="stylesheet" href="./assets/style.css">
-</head>
-
-<body>
-
-    <nav class="navbar is-dark is-flex-mobile is-flex-tablet" role="navigation" aria-label="main navigation">
-        <div class="navbar-brand">
-            <a class="navbar-item" onclick="openWebsite()">
-                <span class="is-size-5">RubenDax.com</sapn>
-            </a>
+  <body>
+    <div id="bottomMenubar">
+        <div id="menuHome" class="bottomMenuItem active">
+            <img class="bottom-menu-icon" src="./assets/images/icons/home.png">
+            HOME
         </div>
-        <div class="navbar-end">
-            <div class="navbar-item">
-                <a id="close" class="button is-dark" onclick="window.close()">
-                    <span class="is-size-5">&times;</sapn>
-                </a>
-            </div>
+        <div id="menuStatus" class="bottomMenuItem">
+            <img class="bottom-menu-icon" src="./assets/images/icons/sauna.png">
+            Status
         </div>
-    </nav>
-
-    <div class="container" style="text-align: center;">
-        <section class="hero is-info">
-            <div class="hero-body">
-                <div class="container">
-                    <h1 class="title">
-                    RubenDax Firmware Updater
-                    </h1>
-                    <h2 class="subtitle">
-                    &copy; 2020, Ruben Dax
-                    </h2>
-                </div>
-            </div>
-        </section>
-
-        <div id="version-container" class="rubendax-step notification is-info">
-            <p id="version"></p>
+        <div id="menuPrograms" class="bottomMenuItem">
+            <img class="bottom-menu-icon" src="./assets/images/icons/programs.png">
+            Programs
         </div>
-
-        <div id="progress-container" class='rubendax-step'>
-            <progress class="progress is-small is-info" max="100"></progress>
+        <div  id="menuInfo"class="bottomMenuItem">
+            <img class="bottom-menu-icon" src="./assets/images/icons/info.png">
+            Info
         </div>
-
-        <div id="message-container" class="rubendax-step">
-            <p id="message"></p>
-        </div>
-
-        <!-- <div id="port-selector-container" class="rubendax-step">
-            <div class="select">
-                <select id="port-selector"></select>
-            </div>
-        </div> -->
-
-        <div id="search-again-button-container" class="rubendax-step">
-            <a id="search-again-button" class="button is-info is-outlined">
-                <span class="icon">
-                    <i class="fas fa-search" aria-hidden="true"></i>
-                </span>
-                <span>Search Again</span>
-            </a>
-        </div>
-        <!-- <div id="hex-file-container" class="rubendax-step">
-            <div class="file has-name">
-                <label class="file-label">
-                <input id="hex-file-input" class="file-input" type="file" name="resume">
-                <span class="file-cta">
-                    <span class="file-icon">
-                    <i class="fas fa-upload"></i>
-                    </span>
-                    <span class="file-label">
-                    Choose a HEX file …
-                    </span>
-                </span>
-                <span id="hex-file-name" class="file-name">
-                    (none)
-                </span>
-                </label>
-            </div>
-        </div> -->
-
-        <div id="upload-button-container" class="rubendax-step">
-            <a id="upload-button" class="button is-info is-outlined">
-                <span class="icon">
-                    <i class="fas fa-upload" aria-hidden="true"></i>
-                </span>
-                <span>Upgrade Now</span>
-            </a>
+        <div id="menuSettings" class="bottomMenuItem">
+            <img class="bottom-menu-icon" src="./assets/images/icons/settings.png">
+            Settings
         </div>
     </div>
 
-    <script src="./renderer.js"></script>
-</body>
+    <div id="mainContainer">
+        <div id="homePage">
+            <div id="homeValue">
+                <img src="./assets/images/arrow-up.png">
+                <span class="value">25</span> °C
+            </div>
+            <div id="homeProgramTemperature">
+                Program temperature: <span class="value">70</span> &#8451;
+            </div>
+            <div id="homeStatus">
+                <label>STATUS</label>
+                <div>
+                    <span class="value">Heating..</span>
+                </div>
+            </div
 
+        </div>
+    </div>
+
+    <script src="./assets/js/jquery-3.2.1.slim.min.js"></script>
+    <script src="./assets/js/popper.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./renderer.js"></script>
+  </body>
 </html>

@@ -1,7 +1,7 @@
 {
-    "name": "avrgirl-arduino-electron",
+    "name": "eastec-sone-piapp",
     "version": "0.0.1",
-    "description": "Electron wrapper of AVRGIRL Arduino programmer",
+    "description": "Eastect Sone Pi App",
     "author": "Ruben Dax",
     "license": "MIT",
     "homepage": "https://rubendax.com",
