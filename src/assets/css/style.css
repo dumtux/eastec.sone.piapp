@@ -6,39 +6,89 @@ div, p, span, a, h1, h2, h3, h4, h5 {
     color: #37434F;
 }
 
+.mt-100 {
+    margin-top: 100px;
+}
+
+.mt-80 {
+    margin-top: 80px;
+}
+
+.mt-60 {
+    margin-top: 60px;
+}
+
+.mt-40 {
+    margin-top: 40px;
+}
+
+.mt-20 {
+    margin-top: 20px;
+}
+
+.mt-10 {
+    margin-top: 10px;
+}
+
+.mb-100 {
+    margin-bottom: 100px;
+}
+
+.mb-80 {
+    margin-bottom: 80px;
+}
+
+.mb-60 {
+    margin-bottom: 60px;
+}
+
+.mb-40 {
+    margin-bottom: 40px;
+}
+
+.mb-20 {
+    margin-bottom: 20px;
+}
+
+.mb-10 {
+    margin-bottom: 10px;
+}
+
 #bottomMenubar {
     position: fixed;
     bottom: 0;
     height: 80px;
     display: grid;
     width: 100vw;
-    padding: 15px 25px;
+    padding: 15px 150px;
     display: flex;
-    background-color: #E5E5E5;
-    color: #6D7596;
+    background-color: #FFFAF1;
+    color: #5F5F5F;
+    z-index: 10;
+    box-shadow: 0px -4px 8px rgba(135, 143, 163, 0.1);
 }
 
 #bottomMenubar .bottomMenuItem {
     flex: 1;
     text-align: center;
-    text-transform: uppercase;
-    font-size: 12pt;
+    text-transform: capitalize;
+    font-size: 16pt;
     padding-top: 11px;
 }
 
 #bottomMenubar .bottomMenuItem img {
-    width: 30px;
-    height: 30px;
-    margin-top: -3px;
-    margin-right: 8px;
+    width: 40px;
+    height: 40px;
+    margin-top: -5px;
+    margin-right: 5px;
 }
 
 #bottomMenubar .bottomMenuItem.active {
-    color: #37434F;
+    color: #3A8DDE;
 }
 
 #bottomMenubar .bottomMenuItem.active img {
-    filter: hue-rotate(135deg) saturate(8);
+    filter: sepia(300%) hue-rotate(190deg) saturate(1000%);
 }
 
 
@@ -47,16 +97,147 @@ div, p, span, a, h1, h2, h3, h4, h5 {
     height: calc(100vh - 80px);
     background-color: white;
     overflow: hidden;
+    position: relative;
 }
 
-#homePage {
-    width: 100vw;
+#mainContainer.is-animating {
+    position: absolute;
+    top: 0;
+    left: 15px;
+    right: 15px;
+    width: auto;
+}
+
+.content-page {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0;
+    width: 100%;
     height: calc(100vh - 80px);
+    opacity: 0;
+    -webkit-transform: translateX(100%);
+            transform: translateX(100%);
+}
+
+.content-page.is-active {
+    position: relative;
+    opacity: 1;
+    -webkit-transform: translateX(0%);
+            transform: translateX(0%);
+}
+
+.content-page.is-exiting {
+    opacity: 0;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
+}
+
+.content-page.is-animating {
+    -webkit-transition: opacity 400ms ease-out, -webkit-transform 400ms ease-out;
+    transition: opacity 400ms ease-out, -webkit-transform 400ms ease-out;
+    transition: opacity 400ms ease-out, transform 400ms ease-out;
+    transition: opacity 400ms ease-out, transform 400ms ease-out, -webkit-transform 400ms ease-out;
+}
+
+#saunaControlPage {
     background-image: url(../images/sauna-room.png);
-    background-position: bottom left;
+    background-position: top left;
     background-repeat: no-repeat;
-    background-size: 665px;
-    padding: 150px 50px 0px 50%;
+    background-size: 450px;
+    padding: 150px 50px 0px 380px;
+    background-color: #F8FFFF;
+}
+
+#saunaControlPage.heat {
+    background-image: url(../images/sauna-room-heat.png);
+}
+
+.block-card {
+    display: inline-block;
+    background-color: white;
+    padding: 20px 20px 10px 20px;
+    width: 235px;
+    margin-right: 15px;
+    border: 1px solid #FFFFFF;
+    box-sizing: border-box;
+    box-shadow: 0px 8px 38px rgba(124, 183, 183, 0.08), 0px 16px 22px rgba(124, 183, 183, 0.08), 0px 8px 14px rgba(124, 183, 183, 0.16);
+    border-radius: 30px;
+}
+
+.blue-label {
+    color: #619595;
+    font-size: 30pt;
+}
+
+.icon-button {
+    width: 50px;
+    height: 50px;
+    border: 2px solid #EDEDED;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.button {
+    display: inline-block;
+    font-weight: bold;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    border: 1px solid transparent;
+    border-radius: 30px;
+    padding: 10px .75rem;
+    font-size: 18px;
+    line-height: 1.5;
+    border-radius: 30px;
+    box-shadow: 0px 0px 1px rgba(58, 141, 222, 0.12), 0px 2px 6px rgba(58, 141, 222, 0.14), 0px 16px 24px rgba(58, 141, 222, 0.06);
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+}
+
+.button-primary {
+    border: 4px solid #3A8DDE;
+    color: white;
+    background: #3A8DDE;
+}
+
+.button-warning {
+    border: 4px solid #EFAB46;
+    background-color: #EFAB46;
+    color: white;
+}
+
+.button-outline {
+    border: 4px solid #3A8DDE;
+    background-color: transparent;
+    color: #3A8DDE;
+}
+
+.block-card-footer p {
+    color: #7E7E7E;
+    margin-bottom: 0px;
+    font-size: 18px;
+}
+
+#btnHeatStart {
+    width: 475px;
+}
+
+#btnHeatFinish {
+    width: 130px;
+    margin-right: 20px;
+}
+
+#btnHeatContinue, #btnHeatPause {
+    width: 320px;
+}
+
+.content-page h2.page-title {
+    color: #7E7E7E;
 }
 
 #homeValue {
@@ -89,3 +270,5 @@ div, p, span, a, h1, h2, h3, h4, h5 {
     padding: 15px 40px;
     font-size: 25pt;
 } 
+
+

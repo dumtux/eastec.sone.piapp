@@ -17,51 +17,93 @@
 
   <body>
     <div id="bottomMenubar">
-        <div id="menuHome" class="bottomMenuItem active">
-            <img class="bottom-menu-icon" src="./assets/images/icons/home.png">
-            HOME
+        <div data-target="#saunaControlPage" class="bottomMenuItem active">
+            <img class="bottom-menu-icon" src="./assets/images/icons/sauna-control.png">
+            Sauna Control
         </div>
-        <div id="menuStatus" class="bottomMenuItem">
-            <img class="bottom-menu-icon" src="./assets/images/icons/sauna.png">
-            Status
+        <div data-target="#calendarPage" class="bottomMenuItem">
+            <img class="bottom-menu-icon" src="./assets/images/icons/calendar.png">
+            Calendar
         </div>
-        <div id="menuPrograms" class="bottomMenuItem">
-            <img class="bottom-menu-icon" src="./assets/images/icons/programs.png">
-            Programs
+        <div data-target="#educationPage" class="bottomMenuItem">
+            <img class="bottom-menu-icon" src="./assets/images/icons/education.png">
+            Education
         </div>
-        <div  id="menuInfo"class="bottomMenuItem">
-            <img class="bottom-menu-icon" src="./assets/images/icons/info.png">
-            Info
-        </div>
-        <div id="menuSettings" class="bottomMenuItem">
+        <div data-target="#settingsPage" class="bottomMenuItem">
             <img class="bottom-menu-icon" src="./assets/images/icons/settings.png">
             Settings
         </div>
     </div>
 
     <div id="mainContainer">
-        <div id="homePage">
-            <div id="homeValue">
-                <img src="./assets/images/arrow-up.png">
-                <span class="value">25</span> °C
-            </div>
-            <div id="homeProgramTemperature">
-                Program temperature: <span class="value">70</span> &#8451;
-            </div>
-            <div id="homeStatus">
-                <label>STATUS</label>
-                <div>
-                    <span class="value">Heating..</span>
+        <div id="saunaControlPage" class="content-page is-active">
+            <h2 class="page-title">iHealth 1 Person Deluxe</h2>
+            <div class="mt-60">
+                <div class="block-card">
+                    <div class="block-card-body">
+                        <h3 class="blue-label">23°C</h3>
+                    </div>
+                    <div class="block-card-footer">
+                        <p>Program temp: 70°C</p>
+                    </div>
                 </div>
-            </div
-
+                <div class="block-card">
+                    <div class="block-card-body">
+                        <h3 class="blue-label">10m 00s</h3>
+                    </div>
+                    <div class="block-card-footer">
+                        <p>Program time</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-20">
+                <div class="block-card">
+                    <div class="block-card-body">
+                        <img class="icon-button" src="./assets/images/icons/halo-light.png">
+                    </div>
+                    <div class="block-card-footer">
+                        <p>Halo light off</p>
+                    </div>
+                </div>
+                <div class="block-card">
+                    <div class="block-card-body">
+                        <img class="icon-button" src="./assets/images/icons/overhead-light.png">
+                    </div>
+                    <div class="block-card-footer">
+                        <p>Overhead light off</p>
+                    </div>
+                </div>
+                <div class="block-card">
+                    <div class="block-card-body">
+                        <img class="icon-button" src="./assets/images/icons/music.png">
+                    </div>
+                    <div class="block-card-footer">
+                        <p>Music off</p>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-40">
+                <button id="btnHeatStart" type="button" class="button button-primary" onclick="startHeat()">Heat the Sauna</button>
+                <button id="btnHeatFinish" type="button" class="button button-outline d-none" onclick="stopHeat()">Finish</button>
+                <button id="btnHeatContinue" type="button" class="button button-warning d-none" onclick="continueHeat()">Pause</button>
+                <button id="btnHeatPause" type="button" class="button button-primary d-none" onclick="pauseHeat()">Continue</button>
+            </div>
+        </div>
+        <div id="calendarPage" class="content-page">
+            <h1>Sauna Page</h1>
+        </div>
+        <div id="educationPage" class="content-page">
+            <h1>Program Page</h1>
+        </div>
+        <div id="settingsPage" class="content-page">
+            <h1>Setting Page</h1>
         </div>
     </div>
 
     <script src="./assets/js/jquery-3.2.1.slim.min.js"></script>
     <script src="./assets/js/popper.min.js"></script>
     <script src="./assets/js/bootstrap.min.js"></script>
-    <script src="./assets/js/bootstrap.min.js"></script>
+    <script src="./assets/js/app.js"></script>
     <script src="./renderer.js"></script>
   </body>
 </html>
