@@ -23,7 +23,7 @@
         </div>
         <div data-target="#calendarPage" class="bottomMenuItem">
             <img class="bottom-menu-icon" src="./assets/images/icons/calendar.png">
-            Calendar
+            Programs
         </div>
         <div data-target="#educationPage" class="bottomMenuItem">
             <img class="bottom-menu-icon" src="./assets/images/icons/education.png">
@@ -38,51 +38,160 @@
     <div id="mainContainer">
         <div id="saunaControlPage" class="content-page is-active">
             <h2 class="page-title">iHealth 1 Person Deluxe</h2>
-            <div class="mt-60">
+            <div class="mt-60 card-section">
                 <div class="block-card">
-                    <div class="block-card-body">
-                        <h3 class="blue-label">23°C</h3>
+                    <div class="block-card-collapsed">
+                        <div class="block-card-body">
+                            <h3 class="blue-label">23°C</h3>
+                        </div>
+                        <div class="block-card-footer">
+                            <p>Program temp: 70°C</p>
+                        </div>
                     </div>
-                    <div class="block-card-footer">
-                        <p>Program temp: 70°C</p>
+                    <div class="block-card-expand d-none">
+                        <div class="block-card-body">
+                            <div class="text-center">
+                                <img class="color-img" src="./assets/images/icons/temperature-color.png" >
+                                <h4 class="black-label">Temperature</h4>
+                                <div id="temperature-dial" class="gauge" data-digit="64" data-type="temperature" data-label="64°C">
+                                    <div class="gauge-outer"></div>
+                                    <div class="gauge-inner"></div>
+                                    <div class="gauge-digits"></div>
+                                    <div class="gauge-label ready">Ready</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-card-footer">
+                            <div class="row">
+                                <div class="col-6 text-center">
+                                    <p>Program:</p>
+                                    <h3 class="blue-label">70°C</h3>
+                                </div>
+                                <div class="col-6 text-center">
+                                    <p>Target:</p>
+                                    <h3 class="blue-label">63°C</h3>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="block-card">
-                    <div class="block-card-body">
-                        <h3 class="blue-label">10m 00s</h3>
+                    <div class="block-card-collapsed">
+                        <div class="block-card-body">
+                            <h3 class="blue-label">10m 00s</h3>
+                        </div>
+                        <div class="block-card-footer">
+                            <p>Program time</p>
+                        </div>
                     </div>
-                    <div class="block-card-footer">
-                        <p>Program time</p>
+                    <div class="block-card-expand d-none">
+                        <div class="block-card-body">
+                            <div class="text-center">
+                                <img class="color-img" src="./assets/images/icons/time-color.png" >
+                                <h4 class="black-label">Session time</h4>
+                                <div id="time-dial" class="gauge" data-digit="24" data-type="time" data-label="24m30s">
+                                    <div class="gauge-outer"></div>
+                                    <div class="gauge-inner"></div>
+                                    <div class="gauge-digits"></div>
+                                    <div class="gauge-label waiting">Waiting for start</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="block-card-footer">
+                            <div class="row">
+                                <div class="col-12 text-center">
+                                    <p>Program:</p>
+                                    <h3 class="blue-label">32min</h3>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="mt-20">
+            <div class="mt-20 card-section">
                 <div class="block-card">
-                    <div class="block-card-body">
-                        <img class="icon-button" src="./assets/images/icons/halo-light.png">
+                    <div class="block-card-collapsed">
+                        <div class="block-card-body">
+                            <img class="icon-button" src="./assets/images/icons/halo-light.png">
+                        </div>
+                        <div class="block-card-footer">
+                            <p>Halo light off</p>
+                        </div>
                     </div>
-                    <div class="block-card-footer">
-                        <p>Halo light off</p>
+                    <div class="block-card-expand d-none">
+                        <div class="block-card-body">
+                            <div class="text-center">
+                                <img class="color-img" src="./assets/images/icons/halo-light-color.png" >
+                                <h4 class="black-label">Halo light on</h4>
+                                <div>
+                                    <img class="off-button" src="./assets/images/icons/off.png">
+                                </div>
+                                <div class="color-picker mt-20">
+                                    <input type="color" class="colorpicker" name="color" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" value="#bada55"> 
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="block-card">
-                    <div class="block-card-body">
-                        <img class="icon-button" src="./assets/images/icons/overhead-light.png">
+                    <div class="block-card-collapsed">
+                        <div class="block-card-body">
+                            <img class="icon-button" src="./assets/images/icons/overhead-light.png">
+                        </div>
+                        <div class="block-card-footer">
+                            <p>Overhead light off</p>
+                        </div>
                     </div>
-                    <div class="block-card-footer">
-                        <p>Overhead light off</p>
+                    <div class="block-card-expand d-none">
+                        <div class="block-card-body">
+                            <div class="text-center">
+                                <img class="color-img" src="./assets/images/icons/halo-light-color.png" >
+                                <h4 class="black-label">Halo light on</h4>
+                                <div>
+                                    <img class="off-button" src="./assets/images/icons/off.png">
+                                </div>
+                                <div class="color-picker mt-20">
+                                    <input type="color" class="colorpicker" name="color" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" value="#bada55"> 
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
                 <div class="block-card">
-                    <div class="block-card-body">
-                        <img class="icon-button" src="./assets/images/icons/music.png">
+                    <div class="block-card-collapsed">
+                        <div class="block-card-body">
+                            <img class="icon-button" src="./assets/images/icons/music.png">
+                        </div>
+                        <div class="block-card-footer">
+                            <p>Music off</p>
+                        </div>
                     </div>
-                    <div class="block-card-footer">
-                        <p>Music off</p>
+                    <div class="block-card-expand d-none">
+                        <div class="block-card-body">
+                            <div class="text-center">
+                                <img class="color-img" src="./assets/images/icons/music.png" >
+                                <h4 class="black-label">Music off</h4>
+                                <div>
+                                    <img class="cover-bg" src="./assets/images/music-bg.png">
+                                </div>
+                                <p class="music-title">Slow dancing in the dark</p>
+                                <div class="music-control row">
+                                    <div class="col-4 text-center">
+                                        <img src="./assets/images/icons/music-prev.png">
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <img src="./assets/images/icons/music-play.png">
+                                    </div>
+                                    <div class="col-4 text-center">
+                                        <img src="./assets/images/icons/music-next.png">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
-            <div class="mt-40">
+            <div class="mt-40 card-section">
                 <button id="btnHeatStart" type="button" class="button button-primary" onclick="startHeat()">Heat the Sauna</button>
                 <button id="btnHeatFinish" type="button" class="button button-outline d-none" onclick="stopHeat()">Finish</button>
                 <button id="btnHeatContinue" type="button" class="button button-warning d-none" onclick="continueHeat()">Pause</button>
@@ -90,7 +199,104 @@
             </div>
         </div>
         <div id="calendarPage" class="content-page">
-            <h1>Sauna Page</h1>
+            <div class="card-section">
+                <div>
+                    <h3 class="card-section-title">Current Program</h3>
+                </div>
+                <div class="program-card">
+                    <div class="program-card-header">
+                        <div class="program-time">
+                            <img src="./assets/images/icons/time-color.png">
+                            <span> 30<small>min</small> </span>
+                        </div>
+                        <div class="program-temperature">
+                            <img src="./assets/images/icons/temperature-color.png">
+                            <span> 55°C </span>
+                        </div>
+                    </div>
+                    <div class="program-card-body">
+                        <h4 class="program-title">Daily relax</h4>
+                        <div class="program-detail">
+                            <ul>
+                                <li>Perfect for sportsmen</li> 
+                                <li>Adopted for people aged 25+</li>
+                                <li>Good works with your life style</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="card-section mt-40">
+                <div>
+                    <h3 class="card-section-title">Program Lists</h3>
+                </div>
+                <div class="program-card">
+                    <div class="program-card-header">
+                        <div class="program-time">
+                            <img src="./assets/images/icons/time-color.png">
+                            <span> 10<small>min</small> </span>
+                        </div>
+                        <div class="program-temperature">
+                            <img src="./assets/images/icons/temperature-color.png">
+                            <span> 65°C </span>
+                        </div>
+                    </div>
+                    <div class="program-card-body">
+                        <h4 class="program-title" data-toggle="collapse" data-target="#program1">Test program title</h4>
+                        <div id="program1" class="program-detail collapse">
+                            <ul>
+                                <li>Perfect for sportsmen</li> 
+                                <li>Adopted for people aged 25+</li>
+                                <li>Good works with your life style</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-card-header">
+                        <div class="program-time">
+                            <img src="./assets/images/icons/time-color.png">
+                            <span> 15<small>min</small> </span>
+                        </div>
+                        <div class="program-temperature">
+                            <img src="./assets/images/icons/temperature-color.png">
+                            <span> 70°C </span>
+                        </div>
+                    </div>
+                    <div class="program-card-body">
+                        <h4 class="program-title" data-toggle="collapse" data-target="#program2">Test program title</h4>
+                        <div id="program2" class="program-detail collapse">
+                            <ul>
+                                <li>Perfect for sportsmen</li> 
+                                <li>Adopted for people aged 25+</li>
+                                <li>Good works with your life style</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="program-card">
+                    <div class="program-card-header">
+                        <div class="program-time">
+                            <img src="./assets/images/icons/time-color.png">
+                            <span> 20<small>min</small> </span>
+                        </div>
+                        <div class="program-temperature">
+                            <img src="./assets/images/icons/temperature-color.png">
+                            <span> 63°C </span>
+                        </div>
+                    </div>
+                    <div class="program-card-body">
+                        <h4 class="program-title" data-toggle="collapse" data-target="#program3">Test program title </h4>
+                        <div id="program3" class="program-detail collapse">
+                            <ul>
+                                <li>Perfect for sportsmen</li> 
+                                <li>Adopted for people aged 25+</li>
+                                <li>Good works with your life style</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
         <div id="educationPage" class="content-page">
             <h1>Program Page</h1>
