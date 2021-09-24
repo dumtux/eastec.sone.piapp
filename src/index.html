@@ -16,6 +16,11 @@
   </head>
 
   <body>
+    <div id="loading">
+        <div class="progress">
+            <div class="progress-bar progress-bar-striped progress-bar-animated" style="width:100%">Loading</div>
+        </div>
+    </div>
     <div id="bottomMenubar">
         <div data-target="#saunaControlPage" class="bottomMenuItem active">
             <img class="bottom-menu-icon" src="./assets/images/icons/sauna-control.png">
@@ -42,10 +47,10 @@
                 <div class="block-card">
                     <div class="block-card-collapsed">
                         <div class="block-card-body">
-                            <h3 class="blue-label">23°C</h3>
+                            <h3 class="blue-label current_temperature">0°C</h3>
                         </div>
                         <div class="block-card-footer">
-                            <p>Program temp: 70°C</p>
+                            <p>Program temp: <span class="program_temperature">0°C</span></p>
                         </div>
                     </div>
                     <div class="block-card-expand d-none">
@@ -65,11 +70,11 @@
                             <div class="row">
                                 <div class="col-6 text-center">
                                     <p>Program:</p>
-                                    <h3 class="blue-label">70°C</h3>
+                                    <h3 class="blue-label target_temperature">0°C</h3>
                                 </div>
                                 <div class="col-6 text-center">
                                     <p>Target:</p>
-                                    <h3 class="blue-label">63°C</h3>
+                                    <h3 class="blue-label program_temperature">0°C</h3>
                                 </div>
                             </div>
                         </div>
@@ -78,10 +83,10 @@
                 <div class="block-card">
                     <div class="block-card-collapsed">
                         <div class="block-card-body">
-                            <h3 class="blue-label">10m 00s</h3>
+                            <h3 class="blue-label remaining_timer">0m 0s</h3>
                         </div>
                         <div class="block-card-footer">
-                            <p>Program time</p>
+                            <p>Program time: <span class="program_timer">0m 0s</span></p>
                         </div>
                     </div>
                     <div class="block-card-expand d-none">
@@ -101,7 +106,7 @@
                             <div class="row">
                                 <div class="col-12 text-center">
                                     <p>Program:</p>
-                                    <h3 class="blue-label">32min</h3>
+                                    <h3 class="blue-label program_timer">0s</h3>
                                 </div>
                             </div>
                         </div>
@@ -109,7 +114,7 @@
                 </div>
             </div>
             <div class="mt-20 card-section">
-                <div class="block-card">
+                <div id="halo_light" class="block-card">
                     <div class="block-card-collapsed">
                         <div class="block-card-body">
                             <img class="icon-button" src="./assets/images/icons/halo-light.png">
@@ -127,7 +132,7 @@
                                     <img class="off-button" src="./assets/images/icons/off.png">
                                 </div>
                                 <div class="color-picker mt-20">
-                                    <input type="color" class="colorpicker" name="color" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" value="#bada55"> 
+                                    <input type="color" class="colorpicker" name="color" pattern="^#+([a-fA-F0-9]{6}|[a-fA-F0-9]{3})$" value="#ffffff"> 
                                 </div>
                             </div>
                         </div>
@@ -199,7 +204,7 @@
             </div>
         </div>
         <div id="calendarPage" class="content-page">
-            <div class="card-section">
+            <div id="current_program" class="card-section">
                 <div>
                     <h3 class="card-section-title">Current Program</h3>
                 </div>
@@ -207,7 +212,7 @@
                     <div class="program-card-header">
                         <div class="program-time">
                             <img src="./assets/images/icons/time-color.png">
-                            <span> 30<small>min</small> </span>
+                            <span> 30s</span>
                         </div>
                         <div class="program-temperature">
                             <img src="./assets/images/icons/temperature-color.png">
@@ -226,76 +231,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card-section mt-40">
-                <div>
-                    <h3 class="card-section-title">Program Lists</h3>
-                </div>
-                <div class="program-card">
-                    <div class="program-card-header">
-                        <div class="program-time">
-                            <img src="./assets/images/icons/time-color.png">
-                            <span> 10<small>min</small> </span>
-                        </div>
-                        <div class="program-temperature">
-                            <img src="./assets/images/icons/temperature-color.png">
-                            <span> 65°C </span>
-                        </div>
-                    </div>
-                    <div class="program-card-body">
-                        <h4 class="program-title" data-toggle="collapse" data-target="#program1">Test program title</h4>
-                        <div id="program1" class="program-detail collapse">
-                            <ul>
-                                <li>Perfect for sportsmen</li> 
-                                <li>Adopted for people aged 25+</li>
-                                <li>Good works with your life style</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="program-card">
-                    <div class="program-card-header">
-                        <div class="program-time">
-                            <img src="./assets/images/icons/time-color.png">
-                            <span> 15<small>min</small> </span>
-                        </div>
-                        <div class="program-temperature">
-                            <img src="./assets/images/icons/temperature-color.png">
-                            <span> 70°C </span>
-                        </div>
-                    </div>
-                    <div class="program-card-body">
-                        <h4 class="program-title" data-toggle="collapse" data-target="#program2">Test program title</h4>
-                        <div id="program2" class="program-detail collapse">
-                            <ul>
-                                <li>Perfect for sportsmen</li> 
-                                <li>Adopted for people aged 25+</li>
-                                <li>Good works with your life style</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="program-card">
-                    <div class="program-card-header">
-                        <div class="program-time">
-                            <img src="./assets/images/icons/time-color.png">
-                            <span> 20<small>min</small> </span>
-                        </div>
-                        <div class="program-temperature">
-                            <img src="./assets/images/icons/temperature-color.png">
-                            <span> 63°C </span>
-                        </div>
-                    </div>
-                    <div class="program-card-body">
-                        <h4 class="program-title" data-toggle="collapse" data-target="#program3">Test program title </h4>
-                        <div id="program3" class="program-detail collapse">
-                            <ul>
-                                <li>Perfect for sportsmen</li> 
-                                <li>Adopted for people aged 25+</li>
-                                <li>Good works with your life style</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+            <div id="program_lists" class="card-section mt-40">
             </div>
         </div>
         <div id="educationPage" class="content-page">

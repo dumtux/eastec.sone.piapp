@@ -2,7 +2,7 @@ html, body {
 
 }
 
-div, p, span, a, h1, h2, h3, h4, h5 {
+div, p, a, h1, h2, h3, h4, h5 {
     color: #37434F;
 }
 
@@ -52,6 +52,22 @@ div, p, span, a, h1, h2, h3, h4, h5 {
 
 .mb-10 {
     margin-bottom: 10px;
+}
+
+#loading {
+    width: 100vw;
+    height: 100vh;
+    z-index: 100;
+    background-color: white;
+    position: absolute;
+}
+
+#loading .progress {
+    width: 250px;
+    transform: translateX(-50%) translateY(-50%);
+    left: 50%;
+    top: 50%;
+    position: absolute;
 }
 
 #bottomMenubar {
@@ -423,6 +439,12 @@ div, p, span, a, h1, h2, h3, h4, h5 {
     color: #9E9E9E;
 }
 
+
+#program_start {
+    font-size: 13px;
+    border-radius: 20px;
+    padding: 3px 12px;
+}
 
 /* dial */
 .gauge {
