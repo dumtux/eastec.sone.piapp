@@ -1,6 +1,6 @@
 var SaunaID = "foo_sauna";
 
-var BaseUrl = 'http://localhost:8010/proxy/sauna/' + SaunaID;
+var BaseUrl = 'http://localhost:8000/sauna/' + SaunaID;
 
 
 function _getStatus() {
@@ -22,18 +22,27 @@ function _getStatus() {
   .catch((error) => {
     console.error('Error:', error);
   });
-
-
 }
 
 function _setStatus(field, value) {
-
+  console.log("here");
+  var post_data = {};
+  post_data[field] = value;
+  fetch(BaseUrl + '/status', {
+    method: "PUT",
+    body: JSON.stringify(post_data),
+    headers: {
+        "Content-type": "application/json; charset=UTF-8"
+    }
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log(data)
+  })
+  .catch((error) => {
+    console.error('Error:', error);
+  });
 }
-
-function _getSchecule() {
-
-}
-
 
 var $tabs = $('#bottomMenubar .bottomMenuItem');
 var previousPage = 0;
@@ -50,45 +59,59 @@ function showPage(pageId) {
   });
 }
 
-$tabs.on('click', function() {
-    $tabs.removeClass("active");
-    $(this).addClass("active");
-    showPage($(this).data("target"));
-});
-
-
 var $saunaControlPage = $("#saunaControlPage");
 var $startHeat = $('#btnHeatStart'), $stopHeat = $('#btnHeatFinish'), $pauseHeat = $('#btnHeatPause'), $continueHeat = $('#btnHeatContinue');
 
+function setSaunaState(state) {
+  switch (state) {
+    case "heat":
+      $startHeat.addClass("d-none");
+      $stopHeat.removeClass("d-none");
+      $pauseHeat.removeClass("d-none");
+      $saunaControlPage.addClass("heat");
+      break;
+    case "pause":
+      $startHeat.addClass("d-none");
+      $stopHeat.removeClass("d-none");
+      $pauseHeat.addClass("d-none");
+      $continueHeat.removeClass("d-none");
+      $saunaControlPage.addClass("heat");
+      break;
+    case "standby":
+      $stopHeat.addClass("d-none");
+      $pauseHeat.addClass("d-none");
+      $continueHeat.addClass("d-none");
+      $startHeat.removeClass("d-none");
+      $saunaControlPage.removeClass("heat");
+      break;
+    case "continue":
+      $startHeat.addClass("d-none");
+      $stopHeat.removeClass("d-none");
+      $continueHeat.addClass("d-none");
+      $pauseHeat.removeClass("d-none");
+      $saunaControlPage.addClass("heat");
+      break;
+  }
+}
+
 function startHeat() {
-  $startHeat.addClass("d-none");
-  $stopHeat.removeClass("d-none");
-  $continueHeat.removeClass("d-none");
-  $saunaControlPage.addClass("heat");
+  _setStatus("state", "heat");
+  setSaunaState("heat");
 }
 
 function stopHeat() {
-  $stopHeat.addClass("d-none");
-  $pauseHeat.addClass("d-none");
-  $continueHeat.addClass("d-none");
-  $startHeat.removeClass("d-none");
-  $saunaControlPage.removeClass("heat");
+  _setStatus("state", "standby");
+  setSaunaState("standby");
 }
 
 function pauseHeat() {
-  $startHeat.addClass("d-none");
-  $stopHeat.removeClass("d-none");
-  $pauseHeat.addClass("d-none");
-  $continueHeat.removeClass("d-none");
-  $saunaControlPage.addClass("heat");
+  _setStatus("state", "pause");
+  setSaunaState("pause");
 }
 
 function continueHeat() {
-  $startHeat.addClass("d-none");
-  $stopHeat.removeClass("d-none");
-  $continueHeat.addClass("d-none");
-  $pauseHeat.removeClass("d-none");
-  $saunaControlPage.addClass("heat");
+  _setStatus("state", "heat");
+  setSaunaState("continue");
 }
 
 function drawDial(eleId) {
@@ -112,6 +135,7 @@ function drawDial(eleId) {
 
   let digit = $(eleId + '.gauge').data('digit');
   let labelTxt = $(eleId + '.gauge').data('label');
+  gaugeDigits.html("");
   gaugeDigits.prepend(`<span class="digit current-digit count">${labelTxt}</span>`);
 
   for (let i = 0; i < points; i++) {
@@ -175,10 +199,6 @@ function drawDial(eleId) {
   }
 }
 
-$('.block-card .block-card-collapsed').on('click', function() {
-  openCard($(this).parent());
-});
-
 function openCard(ele) {
   ele.find(".block-card-collapsed").addClass("d-none");
   ele.find(".block-card-expand").removeClass("d-none");
@@ -192,26 +212,9 @@ function closeCard(ele) {
   ele.find(".block-card-expand").addClass("d-none");
 }
 
-$('.program-title').on('click', function () {
-  if($(this).hasClass('active'))
-    $(this).removeClass('active');
-  else
-    $(this).addClass('active');
-});
-
-$('.program-title').on('hide.bs.collapse', function () {
-  $(this).removeClass('active');
-});
-
 function configureStatus(status) {
   console.log(status);
-  if(status.state == "standby") {
-    stopHeat();
-  } else if(status.state == "heat") {
-    startHeat();
-  } else if(status.state == "pause") {
-    continueHeat();
-  }
+  setSaunaState(status.state);
 
   $(".current_temperature").html(calcTemp(status.current_temperature));
   $(".target_temperature").html(calcTemp(status.set_temperature));
@@ -320,4 +323,68 @@ function RGBToHex(r,g,b) {
 $(document).ready(function(){
   _getStatus();
   setTimeout(function(){$("#loading").addClass("d-none");}, 1500);
+  setInterval(() => {
+    _getStatus();
+  }, 6000);
 });
+
+$tabs.on('click', function() {
+  $tabs.removeClass("active");
+  $(this).addClass("active");
+  showPage($(this).data("target"));
+});
+
+$('.program-title').on('click', function () {
+  if($(this).hasClass('active'))
+    $(this).removeClass('active');
+  else
+    $(this).addClass('active');
+});
+
+$('.program-title').on('hide.bs.collapse', function () {
+  $(this).removeClass('active');
+});
+
+$('.block-card .block-card-collapsed').on('click', function() {
+  openCard($(this).parent());
+});
+
+
+$('#temperature .block-card-collapsed').on('click', function() {
+  openCard($("#temperature"));
+});
+
+$('#temperature .block-card-expand').on('click', function() {
+  closeCard($("#temperature"));
+});
+
+$('#timer .block-card-collapsed').on('click', function() {
+  openCard($("#timer"));
+});
+
+$('#timer .block-card-expand').on('click', function() {
+  closeCard($("#timer"));
+});
+
+
+
+$("#halo_light .block-card-collapsed").on("click", function(){
+  // _setStatus('light', 'on');
+  openCard($("#halo_light"));
+});
+
+$("#overhead_light .block-card-collapsed").on("click", function(){
+  // _setStatus('light', 'on');
+  openCard($("#overhead_light"));
+});
+
+$("#halo_light .off-button").on("click", function(){
+  // _setStatus('light', 'off');
+  closeCard($("#halo_light"));
+});
+
+$("#overhead_light .off-button").on("click", function(){
+  // _setStatus('light', 'off');
+  closeCard($("#overhead_light"));
+});
+

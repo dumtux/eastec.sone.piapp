@@ -44,7 +44,7 @@
         <div id="saunaControlPage" class="content-page is-active">
             <h2 class="page-title">iHealth 1 Person Deluxe</h2>
             <div class="mt-60 card-section">
-                <div class="block-card">
+                <div id="temperature" class="block-card">
                     <div class="block-card-collapsed">
                         <div class="block-card-body">
                             <h3 class="blue-label current_temperature">0°C</h3>
@@ -80,7 +80,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="block-card">
+                <div id="timer" class="block-card">
                     <div class="block-card-collapsed">
                         <div class="block-card-body">
                             <h3 class="blue-label remaining_timer">0m 0s</h3>
@@ -138,7 +138,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="block-card">
+                <div id="overhead_light" class="block-card">
                     <div class="block-card-collapsed">
                         <div class="block-card-body">
                             <img class="icon-button" src="./assets/images/icons/overhead-light.png">
@@ -151,7 +151,7 @@
                         <div class="block-card-body">
                             <div class="text-center">
                                 <img class="color-img" src="./assets/images/icons/halo-light-color.png" >
-                                <h4 class="black-label">Halo light on</h4>
+                                <h4 class="black-label">Overhead light on</h4>
                                 <div>
                                     <img class="off-button" src="./assets/images/icons/off.png">
                                 </div>
@@ -199,8 +199,8 @@
             <div class="mt-40 card-section">
                 <button id="btnHeatStart" type="button" class="button button-primary" onclick="startHeat()">Heat the Sauna</button>
                 <button id="btnHeatFinish" type="button" class="button button-outline d-none" onclick="stopHeat()">Finish</button>
-                <button id="btnHeatContinue" type="button" class="button button-warning d-none" onclick="continueHeat()">Pause</button>
-                <button id="btnHeatPause" type="button" class="button button-primary d-none" onclick="pauseHeat()">Continue</button>
+                <button id="btnHeatPause" type="button" class="button button-warning d-none" onclick="pauseHeat()">Pause</button>
+                <button id="btnHeatContinue" type="button" class="button button-primary d-none" onclick="continueHeat()">Continue</button>
             </div>
         </div>
         <div id="calendarPage" class="content-page">
